@@ -1,13 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import './menu.css'
+import { Link, useLocation } from "react-router-dom";
+import "./menu.css";
 
 const Menu = ({ items }) => {
+  const location = useLocation();
   return (
     <ul className="menu">
       {items.map((item) => (
-        <li key={item.path} className="menu-item">
+        <li
+          key={item.path}
+          className={`menu-item${
+            location.pathname === item.path ? " active" : ""
+          }`}
+        >
           <Link to={item.path}>{item.text}</Link>
         </li>
       ))}
@@ -27,7 +33,7 @@ Menu.propTypes = {
 Menu.defaultProps = {
   items: [
     {
-      path: "/",
+      path: "/home",
       text: "Home",
     },
     {
@@ -37,4 +43,4 @@ Menu.defaultProps = {
   ],
 };
 
-export default Menu
+export default Menu;

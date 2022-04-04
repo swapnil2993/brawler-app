@@ -1,8 +1,9 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "../header";
 import Home from "../home";
-import "./styles.css"
+import Brawlers from "../brawlers";
+import "./styles.css";
 
 export default function Layout() {
   return (
@@ -10,7 +11,9 @@ export default function Layout() {
       <Header />
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/brawlers" element={<Brawlers/>} />
+          <Route exact path="/" element={<Navigate replace to="/home" />} />
         </Routes>
       </main>
     </>
