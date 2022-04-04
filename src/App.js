@@ -1,13 +1,11 @@
-
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import Layout from './components/layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       Brawler app
-      </header>
-    </div>
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   );
 }
 
