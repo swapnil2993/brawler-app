@@ -1,0 +1,11 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.create-brawler-btn {
+  text-decoration: none;
+  margin: 2rem 0;
+  width: fit-content;
+}

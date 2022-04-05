@@ -1,20 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./menu.css";
 
 const Menu = ({ items }) => {
-  const location = useLocation();
   return (
     <ul className="menu">
       {items.map((item) => (
-        <li
-          key={item.path}
-          className={`menu-item${
-            location.pathname === item.path ? " active" : ""
-          }`}
-        >
-          <Link to={item.path}>{item.text}</Link>
+        <li key={item.path} className="menu-item">
+          <NavLink to={item.path} activeclassname="active">
+            {item.text}
+          </NavLink>
         </li>
       ))}
     </ul>

@@ -9,12 +9,16 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main className="main-content">
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/brawlers" element={<Brawlers/>} />
-          <Route exact path="/" element={<Navigate replace to="/home" />} />
-        </Routes>
+      <main>
+        <div className="container">
+          <Routes>
+            <Route index path="/home" element={<Home />} />
+            <Route path="/brawlers" element={<Brawlers />}/>
+            <Route path="/brawlers/create" element={<>Create Brawler</>}/>
+            <Route path="/brawlers/details/:id" element={<>Details</>}/>
+            <Route exact path="/" element={<Navigate replace to="/home" />} />
+          </Routes>
+        </div>
       </main>
     </>
   );
