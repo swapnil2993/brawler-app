@@ -1,12 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const { Brawler } = require("./model");
+const path = require("path")
 
 const app = express();
 app.use(express.json());
 
 app.use(cors());
 app.options("*", cors());
+
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(buildPath));
 
 app.get("/brawlers", async (req, res, next) => {
   const brawlers = await Brawler.findAll({});

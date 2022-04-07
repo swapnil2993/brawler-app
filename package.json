@@ -14,16 +14,19 @@
     "react-scripts": "5.0.0",
     "sass": "^1.49.11",
     "sequelize": "^6.18.0",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "react-scripts start --prefix client",
     "server": "nodemon ./server/index.js --ignore client",
     "seed": "node ./scripts/seed.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "npm run build && npm run server"
   },
   "eslintConfig": {
     "extends": [
@@ -42,10 +45,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "concurrently": "^7.1.0",
-    "nodemon": "^2.0.15"
   },
   "proxy": "http://localhost:3001",
   "engines": {
