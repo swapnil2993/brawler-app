@@ -5,6 +5,8 @@ import Brawler from "./brawler";
 describe("Brawler", () => {
   it("renders brawler correctly", () => {
     const onDeleteAction = jest.fn();
+    const onEditAction = jest.fn();
+    const handleNavigate = jest.fn();
     render(
       <Brawler
         item={{
@@ -15,10 +17,16 @@ describe("Brawler", () => {
           type: "Rare",
         }}
         onDeleteAction={onDeleteAction}
+        onEditAction={onEditAction}
+        handleNavigate={handleNavigate}
       />
     );
     expect(screen.getByText("Barley")).toBeInTheDocument();
-    userEvent.click(screen.getByRole("button"))
-    expect(onDeleteAction).toHaveBeenCalled()
+    userEvent.click(screen.getByText("Delete"));
+    expect(onDeleteAction).toHaveBeenCalledWith(1);
+    userEvent.click(screen.getByText("Edit"));
+    expect(onEditAction).toHaveBeenCalledWith(1);
+    userEvent.click(screen.getByText("Barley"));
+    expect(handleNavigate).toHaveBeenCalledWith(1);
   });
 });

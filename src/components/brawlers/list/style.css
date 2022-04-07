@@ -15,14 +15,33 @@
   background-color: #eee;
 }
 
-.brawler-container > button {
+.button {
   padding: 0.5rem 1rem;
   cursor: pointer;
-  background-color: #f70b0b;
-  color: white;
-  position: relative;
-  border: none;
+  margin: 0 0.5rem;
+}
+
+.delete-button {
+  background-color: white;
+  color: #f70b0b;
+  border: 1px solid #f70b0b;
   border-radius: 0.25rem;
+}
+
+.delete-button:hover {
+  color: white;
+  background-color: #f70b0b;
+}
+
+.edit-button {
+  background-color: white;
+  color: #253adc;
+  border: 1px solid #253adc;
+  border-radius: 0.25rem;
+}
+.edit-button:hover {
+  color: white;
+  background-color: #253adc;
 }
 
 .id-col,
@@ -36,9 +55,16 @@
   padding-left: 1rem;
   text-align: left;
 }
+
+.name-col:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .delete-col,
 .actions-col-header {
   flex-basis: 20%;
+  text-align: center;
 }
 
 .list-header {

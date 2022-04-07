@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Brawler from "./brawler";
 import "./style.css";
 
-const BrawlerList = ({ list }) => {
+const BrawlerList = ({ list, handleDelete, handleEdit, handleNavigate }) => {
   return (
     <>
       <div className="list-header">
@@ -13,7 +13,15 @@ const BrawlerList = ({ list }) => {
       </div>
       <ul className="list-items">
         {list.length > 0 ? (
-          list.map((item) => <Brawler key={item.id} item={item} />)
+          list.map((item) => (
+            <Brawler
+              key={item.id}
+              item={item}
+              onDeleteAction={handleDelete}
+              onEditAction={handleEdit}
+              handleNavigate={handleNavigate}
+            />
+          ))
         ) : (
           <div>No brawlers to display</div>
         )}
@@ -23,6 +31,9 @@ const BrawlerList = ({ list }) => {
 };
 
 BrawlerList.propTypes = {
+  handleDelete: PropTypes.func,
+  handleNavigate: PropTypes.func,
+  handleEdit: PropTypes.func,
   list: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -32,6 +43,12 @@ BrawlerList.propTypes = {
       type: PropTypes.string,
     })
   ).isRequired,
+};
+
+BrawlerList.defaultProps = {
+  handleDelete: () => {},
+  handleNavigate: () => {},
+  handleEdit: () => {},
 };
 
 export default BrawlerList;
