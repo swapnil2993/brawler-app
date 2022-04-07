@@ -5,6 +5,7 @@ import Home from "../pages/home";
 import Brawlers from "../pages/brawlers";
 import "./styles.css";
 import CreateBrawler from "../pages/create-brawlers";
+import Details from "../pages/details";
 
 export default function Layout() {
   return (
@@ -16,7 +17,7 @@ export default function Layout() {
             <Route index path="/home" element={<Home />} />
             <Route path="/brawlers" element={<Brawlers />} />
             <Route path="/brawlers/create" element={<CreateBrawler />} />
-            <Route path="/brawlers/details/:id" element={<>Details</>} />
+            <Route path="/brawlers/details/:id" element={<Details />} />
             <Route exact path="/" element={<Navigate replace to="/home" />} />
           </Routes>
         </div>
