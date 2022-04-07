@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import Input from "./input";
 import "./style.css";
 
-const initialData = {
-  name: "",
-  health: 0,
-  power: 0,
-  type: "common",
+const validateFormData = (data) => {
+  if(data.name === ""){
+    return false
+  }
+  if(data.health < 0 || data.power < 0){
+    return false
+  }
+  return true
 };
 
 const brawlerTypes = [
@@ -15,17 +18,27 @@ const brawlerTypes = [
   { label: "Very Rare", value: "very-rare" },
 ];
 
-const BrawlerForm = ({ onSubmit }) => {
+const BrawlerForm = ({
+  onSubmit,
+  initialData = {
+    name: "",
+    health: 0,
+    power: 0,
+    type: "common",
+  },
+}) => {
   const [formData, setFormData] = useState({ ...initialData });
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    setFormData({ ...initialData });
+    if(validateFormData(formData)){
+      onSubmit(formData);
+      setFormData({ ...initialData });
+    }
   };
 
   const resetForm = () => {
@@ -52,7 +65,7 @@ const BrawlerForm = ({ onSubmit }) => {
             value={formData.health}
             onChange={onChange}
             required
-            min="0"
+            min="1"
           />
         </div>
         <div className="form-element">
@@ -63,7 +76,7 @@ const BrawlerForm = ({ onSubmit }) => {
             value={formData.power}
             onChange={onChange}
             required
-            min="0"
+            min="1"
           />
         </div>
         <div className="form-element">
