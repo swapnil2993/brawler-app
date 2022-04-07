@@ -1,4 +1,4 @@
-.edit-brawler-container{
+.edit-brawler-container {
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -11,4 +11,8 @@
 
 .edit-brawler-container > form {
   width: 100%;
+}
+
+.info {
+  padding: 2rem;
 }

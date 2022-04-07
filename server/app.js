@@ -1,12 +1,16 @@
 const express = require("express");
+const cors = require("cors");
 const { Brawler } = require("./model");
 
 const app = express();
 app.use(express.json());
 
+app.use(cors());
+app.options("*", cors());
+
 app.get("/brawlers", async (req, res, next) => {
   const brawlers = await Brawler.findAll({});
-  return res.json(brawlers);
+  return res.send(brawlers);
 });
 
 app.post("/brawlers", async (req, res, next) => {
@@ -18,15 +22,17 @@ app.post("/brawlers", async (req, res, next) => {
       type: req.body.type,
     };
     const brawler = await Brawler.create({ ...createBrawlerReq });
-    if (brawler) {
+    if (brawler && !res.headersSent) {
       return res
-        .status(201)
-        .send({ message: "Brawler added successfully!", data: brawler });
+        .sendStatus(201)
+        .json({ message: "Brawler added successfully!", data: brawler });
     }
   } catch (err) {
-    return res
-      .status(400)
-      .send({ message: "Something went wrong", error: err });
+    if (!res.headersSent) {
+      return res
+        .status(400)
+        .json({ message: "Something went wrong", error: err });
+    }
   }
 });
 
@@ -37,15 +43,19 @@ app.delete("/brawlers/:id", async (req, res, next) => {
         id: req.params.id,
       },
     });
-    if (result === 1) {
-      res.status(200).json({ message: "Deleted successfully" });
-    } else {
-      res.status(404).json({ message: "Record not found" });
+    if (!res.headersSent) {
+      if (result === 1) {
+        return res.json({ message: "Deleted successfully" });
+      } else {
+        return res.sendStatus(404).json({ message: "Record not found" });
+      }
     }
   } catch (err) {
-    return res
-      .status(400)
-      .send({ message: "Something went wrong", error: err });
+    if (!res.headersSent) {
+      return res
+        .sendStatus(400)
+        .json({ message: "Something went wrong", error: err });
+    }
   }
 });
 
@@ -65,14 +75,21 @@ app.put("/brawlers/:id", async (req, res, next) => {
       };
       const response = await brawler.update(updateBrawlerReq);
       if (response) {
-        res.status(200).json({ message: "Record updated successfully" });
+        if (!res.headersSent) {
+          return res.json({ message: "Record updated successfully" });
+        }
+      }
+    } else {
+      if (!res.headersSent) {
+        return res.sendStatus(404).json({ message: "Record not found" });
       }
     }
-    res.status(404).json({ message: "Record not found" });
   } catch (err) {
-    return res
-      .status(400)
-      .send({ message: "Something went wrong", error: err });
+    if (!res.headersSent) {
+      return res
+        .sendStatus(400)
+        .json({ message: "Something went wrong", error: err });
+    }
   }
 });
 
@@ -84,16 +101,21 @@ app.get("/brawlers/:id", async (req, res, next) => {
       },
     });
     if (brawler) {
-      res
-        .status(200)
-        .json({ message: "Record updated successfully", data: brawler });
+      return res.json({ message: "Record fetch", data: brawler });
+    } else {
+      return res.sendStatus(404).json({ message: "Record not found" });
     }
-    res.status(404).json({ message: "Record not found" });
   } catch (error) {
-    return res
-      .status(400)
-      .send({ message: "Something went wrong", error: err });
+    if (!res.headersSent) {
+      return res
+        .sendStatus(400)
+        .send({ message: "Something went wrong", error: error });
+    }
   }
+});
+
+process.on("uncaughtException", (err) => {
+  console.error(err && err.stack);
 });
 
 module.exports = app;

@@ -9,7 +9,6 @@ const CreateBrawler = () => {
   const handleSubmit = async (data) => {
     const response = await createBrawler(data);
     if (response) {
-      console.log(navigate);
       navigate("/brawlers");
     }
   };

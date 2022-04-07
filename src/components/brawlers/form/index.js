@@ -12,6 +12,13 @@ const validateFormData = (data) => {
   return true
 };
 
+const sanitizeData = (data)=>{
+  return {
+    ...data,
+    name: data.name.trim()
+  }
+}
+
 const brawlerTypes = [
   { label: "Rare", value: "rare" },
   { label: "Common", value: "common" },
@@ -30,13 +37,13 @@ const BrawlerForm = ({
   const [formData, setFormData] = useState({ ...initialData });
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if(validateFormData(formData)){
-      onSubmit(formData);
+      await onSubmit(sanitizeData(formData));
       setFormData({ ...initialData });
     }
   };

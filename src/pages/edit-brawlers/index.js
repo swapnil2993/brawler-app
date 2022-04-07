@@ -30,7 +30,7 @@ const EditBrawler = () => {
       {details ? (
         <BrawlerForm onSubmit={handleSubmit} initialData={details} />
       ) : (
-        <div>Loading the form to edit</div>
+        <div className="info">Loading the form to edit</div>
       )}
     </div>
   );

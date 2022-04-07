@@ -23,7 +23,7 @@ const BrawlerList = ({ list, handleDelete, handleEdit, handleNavigate }) => {
             />
           ))
         ) : (
-          <div>No brawlers to display</div>
+          <div className="info">No brawlers to display</div>
         )}
       </ul>
     </>
