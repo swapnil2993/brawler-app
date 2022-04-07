@@ -1,27 +1,49 @@
-.col-1 {
+.brawler-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-content: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ddd;
+  background-color: #f6f6f6;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
+.brawler-container:hover {
+  background-color: #eee;
+}
+
+.brawler-container > button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #f70b0b;
+  color: white;
+  position: relative;
+  border:none;
+  border-radius: 0.25rem;
+}
+
+.id-col,
+.id-col-header {
   flex-basis: 10%;
-  text-align:left;
+  text-align: center;
 }
-.col-2 {
+.name-col,
+.name-col-header {
   flex-basis: 70%;
-  text-align:center;
+  padding-left: 1rem;
+  text-align: left;
 }
-.col-3 {
+.delete-col,
+.actions-col-header {
   flex-basis: 20%;
-  text-align:center;
 }
 
 .list-header {
   display: flex;
   font-weight: 700;
-  margin: 2rem 0;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid grey;
-}
-
-.brawler-container {
-  display: flex;
-  padding: 1rem 0;
-  border-bottom: 1px solid grey;
-  text-align: center;
 }

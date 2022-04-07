@@ -2,31 +2,16 @@ import React from "react";
 import Brawler from "./brawler";
 import "./style.css";
 
-const BrawlerList = () => {
+const BrawlerList = ({ list }) => {
   return (
     <>
       <div className="list-header">
-        <span className="col-1">#Id</span>
-        <span className="col-2">Name</span>
-        <span className="col-3">Delete</span>
+        <span className="id-col-header">#Id</span>
+        <span className="name-col-header">Name</span>
+        <span className="actions-col-header">Actions</span>
       </div>
       <ul>
-        {[
-          {
-            id: 1,
-            name: "Barley", 
-            power: 400,
-            health: 500,
-            type: "Rare",
-          },
-          {
-            id: 2,
-            name: "Barley2",
-            power: 400,
-            health: 500,
-            type: "Rare",
-          },
-        ].map((item) => (
+        {list.map((item) => (
           <Brawler key={item.id} item={item} />
         ))}
       </ul>

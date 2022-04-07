@@ -5,9 +5,9 @@ import "./style.css";
 const Brawler = ({ item }) => {
   return (
     <li className="brawler-container">
-      <span className="col-1">{item.id}</span>
-      <span className="col-2">{item.name}</span>
-      <button className="col-3">x</button>
+      <span className="id-col">{item.id}</span>
+      <span className="name-col">{item.name}</span>
+      <button>Delete</button>
     </li>
   );
 };
@@ -18,7 +18,7 @@ Brawler.propTypes = {
     power: PropTypes.number,
     health: PropTypes.number,
     name: PropTypes.string.isRequired,
-    type: PropTypes.string
+    type: PropTypes.string,
   }),
 };
 
