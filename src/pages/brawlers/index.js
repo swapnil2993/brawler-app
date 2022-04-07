@@ -1,25 +1,19 @@
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { NavLink } from "react-router-dom";
 import BrawlerList from "../../components/brawlers/list/list";
+import { fetchBrawlers } from "../../services";
 import "./style.css";
 
 const Brawlers = () => {
-  const list = [
-    {
-      id: 1,
-      name: "Barley",
-      power: 400,
-      health: 500,
-      type: "Rare",
-    },
-    {
-      id: 2,
-      name: "Barley2",
-      power: 400,
-      health: 500,
-      type: "Rare",
-    },
-  ];
+  const [list, setList] = useState([]);
+  const fetchData = useCallback(async () => {
+    const data = await fetchBrawlers();
+    setList(data);
+  }, []);
+
+  useEffect(() => {
+    fetchData().catch(console.error);
+  }, [fetchData]);
   return (
     <div className="main-container">
       <NavLink to="/brawlers/create" className="create-brawler-btn">
