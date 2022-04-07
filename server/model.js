@@ -23,7 +23,8 @@ Brawler.init(
       allowNull: false,
     },
     power: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
+      allowNull: false,
     },
     type: {
       type: Sequelize.DataTypes.ENUM("rare", "common", "very-rare"),
