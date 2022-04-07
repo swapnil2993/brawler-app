@@ -1,0 +1,11 @@
+.input-label {
+  padding: 0.75rem 0;
+  font-weight: 500;
+}
+
+.form-input {
+  padding: 1rem;
+  border: none;
+  background: #f1f1f1;
+  font-family: museo-slab, sans-serif;
+}

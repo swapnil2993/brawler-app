@@ -1,0 +1,14 @@
+.create-brawler-container{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  align-content: space-around;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 2rem auto;
+  align-items: center;
+}
+
+.create-brawler-container > form {
+  width: 100%;
+}
