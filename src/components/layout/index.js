@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "../header";
-import Home from "../home";
-import Brawlers from "../brawlers";
+import Home from "../../pages/home";
+import Brawlers from "../../pages/brawlers";
 import "./styles.css";
 
 export default function Layout() {

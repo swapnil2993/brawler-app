@@ -1,7 +1,7 @@
 import React from "react";
-import {  NavLink } from "react-router-dom";
-import BrawlerList from './list/list'
-import './style.css'
+import { NavLink } from "react-router-dom";
+import BrawlerList from "../../components/brawlers/list/list";
+import "./style.css";
 
 const Brawlers = () => {
   const list = [
@@ -22,8 +22,10 @@ const Brawlers = () => {
   ];
   return (
     <div className="main-container">
-      <NavLink to="/brawlers/create" className="create-brawler-btn">Create New Brawler</NavLink>
-      <BrawlerList list={list}/>
+      <NavLink to="/brawlers/create" className="create-brawler-btn">
+        Create New Brawler
+      </NavLink>
+      <BrawlerList list={list} />
     </div>
   );
 };
