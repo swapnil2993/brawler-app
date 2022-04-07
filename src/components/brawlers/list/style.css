@@ -21,7 +21,7 @@
   background-color: #f70b0b;
   color: white;
   position: relative;
-  border:none;
+  border: none;
   border-radius: 0.25rem;
 }
 
@@ -46,4 +46,9 @@
   font-weight: 700;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid grey;
+  width: 100%;
+}
+
+.list-items {
+  width: 100%;
 }

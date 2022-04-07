@@ -11,7 +11,7 @@ const BrawlerList = ({ list }) => {
         <span className="name-col-header">Name</span>
         <span className="actions-col-header">Actions</span>
       </div>
-      <ul>
+      <ul className="list-items">
         {list.length > 0 ? (
           list.map((item) => <Brawler key={item.id} item={item} />)
         ) : (
