@@ -48,3 +48,5 @@ Used heroku with simple config. [Link](https://brawler-app.herokuapp.com/home)
 [] - Adding loaders
 [] - Adding toasters
 [] - Error boundaries
+[] - Integration tests
+
