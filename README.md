@@ -1,8 +1,8 @@
 # Tech Stack
-Nodejs (v16.x)
-Reactjs(v17.0.2)
-Express(v4.x)
-Sqlite(3.x)
+- Nodejs (v16.x)
+- Reactjs(v17.0.2)
+- Express(v4.x)
+- Sqlite(3.x)
 
 ## Steps to run locally
 1. `npm install`
@@ -45,8 +45,8 @@ To install seed data correctly for sqlite.
 Used heroku with simple config. [Link](https://brawler-app.herokuapp.com/home)
 
 ## Enhancements:
-[] - Adding loaders
-[] - Adding toasters
-[] - Error boundaries
-[] - Integration tests
+- [ ] Adding loaders
+- [ ] Adding toasters
+- [ ] Error boundaries
+- [ ] Integration tests
 
