@@ -1,11 +1,12 @@
 import React, { useEffect, useCallback, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchBrawlerDetails } from "../../services";
 import "./style.css";
 
 const displayOrder = ["id", "name", "health", "power", "type"];
 
 const Details = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [details, setDetails] = useState(null);
 
@@ -13,6 +14,10 @@ const Details = () => {
     const response = await fetchBrawlerDetails(id);
     setDetails(response);
   }, []);
+
+  const handleBack = ()=>{
+    navigate("/brawlers")
+  }
 
   useEffect(() => {
     fetchData(id);
@@ -35,6 +40,7 @@ const Details = () => {
           <div>Something went wrong while fetching data</div>
         )}
       </div>
+      <button className="back-button" onClick={handleBack}>Back</button>
     </div>
   );
 };

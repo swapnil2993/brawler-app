@@ -8,6 +8,13 @@
   margin: 2rem auto;
   align-items: flex-start;
 }
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
 .wrapper h1 {
   margin-bottom: 2rem;
 }
@@ -29,4 +36,15 @@
 }
 .attributes dd {
   grid-column-start: span 2;
+}
+
+.back-button {
+  margin-top: 2rem;
+  background-color: #47c345;
+  border: none;
+  color: #ffffff;
+  padding: 1rem 3rem;
+  text-align: center;
+  border-radius: 1rem;
+  font-weight: bold;
 }

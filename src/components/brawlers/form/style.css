@@ -28,6 +28,11 @@
   font-weight: bold;
 }
 
+.form-secondary-btn:hover,
+.form-primary-btn:hover {
+  cursor: pointer;
+}
+
 .form-secondary-btn {
   background-color: #ffffff;
   color: #dd1515;
