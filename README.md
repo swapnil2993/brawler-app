@@ -4,6 +4,16 @@ Reactjs(v17.0.2)
 Express(v4.x)
 Sqlite(3.x)
 
+## Steps to run locally
+1. `npm install`
+2. `npm run seed`
+3. `npm run start:dev`
+
+## Steps to run build version
+1. `npm install`
+2. `npm run seed`
+3. `npm start`
+
 ## Commands
 ### `npm run start:dev`
 
@@ -30,14 +40,11 @@ Creates a build version react app and serves it on node server at 3001
 ### `npm run heroku-postbuild`
 To install seed data correctly for sqlite.
 
-## Steps to run locally
-1. `npm install`
-2. `npm run seed`
-3. `npm run start:dev`
+## Deployment link
 
-## Steps to run build version
-1. `npm install`
-2. `npm run seed`
-3. `npm start`
+Used heroku with simple config. [Link](https://brawler-app.herokuapp.com/home)
 
-
+## Enhancements:
+[] - Adding loaders
+[] - Adding toasters
+[] - Error boundaries
