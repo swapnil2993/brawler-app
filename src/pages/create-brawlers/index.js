@@ -8,7 +8,7 @@ const CreateBrawler = () => {
   const navigate = useNavigate();
   const handleSubmit = async (data) => {
     const response = await createBrawler(data);
-    if (response) {
+    if (response.status === 201) {
       navigate("/brawlers");
     }
   };

@@ -12,12 +12,12 @@ app.options("*", cors());
 const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.static(buildPath));
 
-app.get("/brawlers", async (req, res, next) => {
+app.get("/api/brawlers", async (req, res, next) => {
   const brawlers = await Brawler.findAll({});
   return res.send(brawlers);
 });
 
-app.post("/brawlers", async (req, res, next) => {
+app.post("/api/brawlers", async (req, res, next) => {
   try {
     const createBrawlerReq = {
       name: req.body.name,
@@ -40,7 +40,7 @@ app.post("/brawlers", async (req, res, next) => {
   }
 });
 
-app.delete("/brawlers/:id", async (req, res, next) => {
+app.delete("/api/brawlers/:id", async (req, res, next) => {
   try {
     const result = await Brawler.destroy({
       where: {
@@ -63,7 +63,7 @@ app.delete("/brawlers/:id", async (req, res, next) => {
   }
 });
 
-app.put("/brawlers/:id", async (req, res, next) => {
+app.put("/api/brawlers/:id", async (req, res, next) => {
   try {
     const brawler = await Brawler.findOne({
       where: {
@@ -97,7 +97,7 @@ app.put("/brawlers/:id", async (req, res, next) => {
   }
 });
 
-app.get("/brawlers/:id", async (req, res, next) => {
+app.get("/api/brawlers/:id", async (req, res, next) => {
   try {
     const brawler = await Brawler.findOne({
       where: {
